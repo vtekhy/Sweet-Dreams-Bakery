@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Dreams Bakery</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>🧁 Sweet Dreams Bakery</h1>
+    <p>Handmade happiness in every bite</p>
+</header>
+
+<nav>
+    <a href="Homepage.html">Back To Homepage</a>
+    <a href="Products.html">Our Products</a>
+    <a href="Cake Bulder.html">Cake Builder</a>
+    <a href="Find Us.html">Find Us</a>
+</nav>
+
+    <section id="order">
+        <h2>Order & Inquiries</h2>
+        <div class="order-form">
+            <form onsubmit="alert('Thank you! Your inquiry has been sent (simulated).'); return false;">
+                <label>Your Name:</label>
+                <input type="text" placeholder="First and Last Name" required>
+                
+                <label>Email Address:</label>
+                <input type="email" placeholder="example@mail.com" required>
+                
+                <label>Your Message/Order Details:</label>
+                <textarea rows="5" placeholder="Tell us what you would like to order..."></textarea>
+                
+                <label>Marketing Preferences:</label>
+                <br>
+                <input type="checkbox" checked style="width: auto;"> Send me updates and sweet promotions.
+                <p style="color: #616161; margin-top: -10px; margin-bottom: 25px;"><small>(Uncheck to opt-out of future marketing emails)</small></p>
+                
+                <button type="submit" class="btn">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+<footer>
+    <p>&copy; 2026 Sweet Dreams Bakery - Baked with love & sugar.</p>
+</footer>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Dreams Bakery</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>🧁 Sweet Dreams Bakery</h1>
+    <p>Handmade happiness in every bite</p>
+</header>
+
+<nav>
+    <a href="Homepage.html">Back To Homepage</a>
+    <a href="Products.html">Our Products</a>
+    <a href="Order & Inquiries.html">Order & Inquire</a>
+    <a href="Find Us.html">Find Us</a>
+</nav>
+
+<section id="customizer">
+    <h2>Custom Cake Calculator</h2>
+    <p>Estimate the price of your dream cake by selecting your favorites:</p>
+    <div class="calculator">
+        
+        <label>1. Choose Size:</label>
+        <select id="size" onchange="calculatePrice()">
+            <option value="15">Small ($15.00 Base)</option>
+            <option value="25" selected>Medium ($25.00 Base)</option>
+            <option value="35">Large ($35.00 Base)</option>
+        </select>
+
+        <label>2. Choose Cake Flavor:</label>
+        <select id="flavor" onchange="calculatePrice()">
+            <option value="0">Classic Vanilla (+$0)</option>
+            <option value="5">Rich Chocolate (+$5.00)</option>
+            <option value="7">Red Velvet (+$7.00)</option>
+        </select>
+
+        <label>3. Choose Frosting & Filling:</label>
+        <select id="frosting" onchange="calculatePrice()">
+            <option value="0">Buttercream (+$0)</option>
+            <option value="6">Cream Cheese (+$6.00)</option>
+            <option value="10">Chocolate Ganache (+$10.00)</option>
+        </select>
+
+        
+        <label>4. Occasion:</label>
+        <select id="occasion" onchange="toggleAgeField(); calculatePrice()">
+            <option value="0">General Celebration</option>
+            <option value="5">Birthday (+$5.00)</option>
+            <option value="15">Wedding (+$15.00)</option>
+            <option value="0">Other</option>
+        </select>
+
+        
+        <div id="ageField" style="display: none; background: #fff; padding: 10px; border-radius: 8px; margin-bottom: 20px; border: 1px solid #ffe0b2;">
+            <label>Age for the Cake:</label>
+            <input type="number" id="ageInput" placeholder="e.g. 67" style="margin-bottom: 0;">
+        </div>
+
+        <label>Extra Decorations (+$3.00):</label>
+        <br>
+        <input type="checkbox" id="deco" onchange="calculatePrice()" style="width: auto;"> Sprinkles & Edible Glitter
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <p style="font-size: 24px; color: #d2691e; background: #fff; padding: 15px; border-radius: 10px; display: inline-block; border: 2px solid #f8bbd0;">
+                <strong>Estimated Total: $<span id="totalPrice">31.00</span></strong>
+            </p>
+        </div>
+    </div>
+</section>
+
+<script>
+    function toggleAgeField() {
+        var occasionSelect = document.getElementById('occasion');
+        var selectedValue = occasionSelect.options[occasionSelect.selectedIndex].text;
+        var ageField = document.getElementById('ageField');
+        
+        if (selectedValue.includes("Birthday")) {
+            ageField.style.display = "block";
+        } else {
+            ageField.style.display = "none";
+        }
+    }
+
+    function calculatePrice() {
+        let size = parseFloat(document.getElementById('size').value) || 0;
+        let flavor = parseFloat(document.getElementById('flavor').value) || 0;
+        let frosting = parseFloat(document.getElementById('frosting').value) || 0;
+        let occasionPrice = parseFloat(document.getElementById('occasion').value) || 0;
+        let deco = document.getElementById('deco').checked ? 3.00 : 0;
+        
+        let total = size + flavor + frosting + occasionPrice + deco;
+        
+        document.getElementById('totalPrice').innerText = total.toFixed(2);
+    }
+</script>
+
+<footer>
+    <p>&copy; 2026 Sweet Dreams Bakery - Baked with love & sugar.</p>
+</footer>
